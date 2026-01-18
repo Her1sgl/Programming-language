@@ -13,10 +13,10 @@
 ## Тип алгоритма для архивации определяется по расширению у dest файла (.bz2 или .zstd) 
 
 ## Скриншот сжатия файла 
-![1](screenshots\1.png)
+![1](screenshots/1.png)
 ## Скриншот распаковки файла
-![2](screenshots\2.png)
+![2](screenshots/2.png)
 ## Скриншот сжатия папки
-![3](screenshots\3.png)
+![3](screenshots/3.png)
 ## Скриншот распаковки папки
-![4](screenshots\4.png)
+![4](screenshots/4.png)
