@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4f46e5">
+    <title>SecureVault PWA</title>
+    
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="container header-content">
+            <div class="logo">🛡️ SecureVault</div>
+            <div class="subtitle">Локальное хранилище</div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Секция генератора -->
+        <section class="panel generator-panel">
+            <div class="panel-header">
+                <h3>Генератор</h3>
+            </div>
+            <div class="panel-body">
+                <div class="gen-controls">
+                    <div class="input-wrap">
+                        <label>Длина</label>
+                        <input type="number" id="pwdLength" value="16" min="6" max="32">
+                    </div>
+                    
+                    <div class="toggles">
+                        <label class="toggle-item"><input type="checkbox" id="useUppercase" checked> A-Z</label>
+                        <label class="toggle-item"><input type="checkbox" id="useNumbers" checked> 0-9</label>
+                        <label class="toggle-item"><input type="checkbox" id="useSymbols" checked> @#$</label>
+                    </div>
+                </div>
+                <button id="btnGenerate" class="btn btn-accent full-width">Сгенерировать пароль</button>
+            </div>
+        </section>
+
+        <!-- Секция добавления -->
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Новая запись</h3>
+            </div>
+            <form id="addForm" class="panel-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="siteName">Сервис</label>
+                        <input type="text" id="siteName" placeholder="Google, VK...">
+                    </div>
+                    <div class="form-group">
+                        <label for="url">Сайт</label>
+                        <input type="url" id="url" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label for="login">Логин</label>
+                        <input type="text" id="login" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="text" id="password" required class="code-font">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Сохранить в память</button>
+            </form>
+        </section>
+
+        <!-- Таблица -->
+        <section class="panel">
+            <div class="panel-header">
+                <h3>Список паролей</h3>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сервис</th>
+                            <th>Логин</th>
+                            <th>Ссылка</th>
+                            <th>Секрет</th>
+                            <th style="width: 100px;">Опции</th>
+                        </tr>
+                    </thead>
+                    <tbody id="passwordsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>

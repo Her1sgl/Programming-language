@@ -1,0 +1,249 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --accent: #10b981;
+    --bg: #f3f4f6;
+    --panel-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    margin: 0;
+    padding-bottom: 40px;
+}
+
+/* Header */
+.app-header {
+    background: var(--primary);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Panels */
+.panel {
+    background: var(--panel-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.panel-header {
+    background: #f9fafb;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+/* Forms & Inputs */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+input {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.code-font {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* Generator Controls */
+.gen-controls {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.toggles {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+.toggle-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Buttons */
+.btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-accent {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+.btn-accent:hover { background-color: #eef2ff; }
+
+.btn-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.btn-secondary {
+    background-color: #f3f4f6;
+    color: var(--text-main);
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.full-width { width: 100%; }
+.mt-4 { margin-top: 16px; }
+
+/* Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 12px 20px;
+    background: #f9fafb;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Mobile Adaptability */
+@media (max-width: 650px) {
+    .form-grid { grid-template-columns: 1fr; }
+    
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute; top: -9999px; left: -9999px; }
+    
+    tr { margin-bottom: 15px; border-bottom: 2px solid var(--border); }
+    
+    td {
+        padding: 10px 20px;
+        position: relative;
+        padding-left: 40%;
+        display: flex;
+        align-items: center;
+    }
+    
+    td:before {
+        position: absolute;
+        left: 20px;
+        width: 35%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        content: attr(data-label);
+    }
+
+    td[data-label="Опции"] {
+        justify-content: flex-end;
+        padding-left: 20px;
+        background: #fafafa;
+    }
+    td[data-label="Опции"]:before { display: none; }
+}
